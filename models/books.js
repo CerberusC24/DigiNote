@@ -28,13 +28,5 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
   });
-  Book.associate = function (models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    Book.hasMany(models.Post, {
-      onDelete: 'cascade',
-    });
-  };
-
   return Book;
 };
