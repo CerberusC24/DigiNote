@@ -2,7 +2,7 @@
 /* eslint-disable eol-last */
 // Book table that tracks title, author, pages, year released, plot and rating
 module.exports = function (sequelize, DataTypes) {
-  const Book = sequelize.define('Book', {
+  const Book = sequelize.define('books', {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -28,5 +28,10 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
   });
+
+  // Post.belongsToMany(models.books, {
+  //   through: 'bookPost',
+  // });
+
   return Book;
 };
