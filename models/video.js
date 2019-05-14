@@ -1,10 +1,15 @@
 module.exports = function(sequelize, DataTypes){
 
-  const video = sequelize.define("video", {
+  const Video = sequelize.define("Video", {
     url: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+    }  
+    });
+   
+    Video.belongsToMany(models.Post, {
+      through: 'videoPost',
+      
   });
-  return video;
+  return Video;
 };

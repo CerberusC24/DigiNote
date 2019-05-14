@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
 
-  const songs = sequelize.define("songs", {
+  const Song = sequelize.define("Song", {
     artist: {
       type: DataTypes.STRING,
 
@@ -15,5 +15,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING, 
     }
   });
-  return songs;
+
+  Song.belongsToMany(song.Post, {
+    through: 'songPost',
+  
+  });
+
+  return Song;
 };

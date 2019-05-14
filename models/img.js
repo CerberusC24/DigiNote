@@ -1,10 +1,15 @@
 module.exports = function(sequelize, DataTypes){
-const img = sequelize.define("img", {
+const Img = sequelize.define("Img", {
 
   url: {
     type: DataTypes.STRING,
     allowNull:false
   }
 });
-return img;
+
+Img.belongsToMany(models.Post, {
+  through: 'imgPost',
+
+});
+return Img;
 }
