@@ -1,6 +1,5 @@
 /* eslint-disable eol-last */
-
-require("dotenv").config();
+require('dotenv').config();
 
 module.exports = {
   development: {
