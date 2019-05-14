@@ -7,6 +7,20 @@ Modules.export = function(sequelize, DataTypes){
         isEmail: true
       }
     },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
     password: {
       type: DataTypes.STRING
     }

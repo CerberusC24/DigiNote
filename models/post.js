@@ -14,22 +14,32 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Post.associate = function(models) {
-    // saying that the post is conencted ot the user
+   User.associate = (models) => {
+    
     Post.belongsTo(models.Users, {
       foreignKey: {
         allowNull: false
       }
     });
-  };
 
-  // Post.associate = (models) => {
-  //   Post.belongsToMany(models.Groups, {
-  //     through: 'GroupUsers',
-  //     as: 'groups',
-  //     foreignKey: 'userId'
-  //   });
-  // };
+    Post.belongsToMany(models.Book, {
+      through: 'BookPost',
+    });
+
+    Post.belongsToMany(models.Video, {
+      through: 'VideoPost',
+    });
+
+    Post.belongsToMany(models.Img, {
+      through: 'ImgPost',
+    });
+
+    Post.belongsToMany(models.Song, {
+      through: 'SongPost',
+    });
+
+
+  };
 
   return Post;
 };
