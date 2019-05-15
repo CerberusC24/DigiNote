@@ -16,6 +16,7 @@ const express = require('express');
 // =============================================================
 const app = express();
 const PORT = process.env.PORT || 3000;
+console.log(`Port: ${PORT}`)
 
 const routes = require("./routes");
 
@@ -34,7 +35,7 @@ app.use(routes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync().then(() => {
+db.sequelize.sync({force: false}).then(() => {
   app.listen(PORT, function () {
     console.log('App listening on PORT ' + PORT);
   });
