@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 const jwt = require('jsonwebtoken');
 
-const secret = 'swordfish';
+const secret = process.env.jwt_pwd;
 
 const withAuth = (req, res, next) => {
   let token =
