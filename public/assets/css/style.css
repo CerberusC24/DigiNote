@@ -12,7 +12,7 @@ body {
 }
 
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image2.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image.jpg");
   background-size: cover;
   content: "";
   display: block;
@@ -26,4 +26,18 @@ body {
   position: relative;
   opacity: 0.8;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+
+}
+
+.log-in-form {
+  height: 350px;
+  align-items: stretch;
+  justify-content: space-between;
+  min-width: 300px;
+}
+
+h1 {
+  font-family: fantasy;
 }
