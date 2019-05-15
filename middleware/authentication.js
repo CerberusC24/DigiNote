@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 const jwt = require('jsonwebtoken');
-
+require('dotenv').config();
 const secret = process.env.jwt_pwd;
 
 const withAuth = (req, res, next) => {
@@ -30,7 +30,7 @@ const withAuth = (req, res, next) => {
         });
       } else {
         req.email = decoded.email;
-        req._id = decoded._id;
+        req.id = decoded.id;
         next();
       }
     });
