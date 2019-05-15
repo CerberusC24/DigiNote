@@ -6,9 +6,9 @@ const secret = process.env.jwt_pwd;
 
 // registering a new user
 const register = (req, res) => {
-  const {email, firstName, lastName, password} = req.body;
+  const {userName, firstName, lastName, password} = req.body;
   User.create({
-    email,
+    userName,
     firstName,
     lastName,
     password
@@ -22,11 +22,11 @@ const register = (req, res) => {
 
 // logging in an existing user
 const login = async (req, res) => {
-  // getting email and password
-  const {email, password} = req.body;
+  // getting userName and password
+  const {userName, password} = req.body;
 
   // find the user
-  const [findUserErr, userInfo] = await handle(User.findOne({ email }));
+  const [findUserErr, userInfo] = await handle(User.findOne({ userName }));
 
   if (findUserErr){
     console.log(findUserErr);
@@ -36,7 +36,7 @@ const login = async (req, res) => {
   }
   else if (!userInfo){
     res.status(401).json({
-      error: "Uh-oh, it seems like you have the wrong email."
+      error: "Uh-oh, it seems like you have the wrong userName."
     })
   }
   else {
@@ -55,7 +55,7 @@ const login = async (req, res) => {
     else {
       const payload = {
         id: userInfo.id,
-        email: userInfo.email
+        userName: userInfo.userName
       };
       // assign jwt
       const token = jwt.sign(payload, secret, {
