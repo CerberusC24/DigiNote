@@ -31,13 +31,6 @@ body {
 
 }
 
-.log-in-form {
-  height: 350px;
-  align-items: stretch;
-  justify-content: space-between;
-  min-width: 300px;
-}
-
-h1 {
-  font-family: fantasy;
+.home-form {
+  justify-content: center;
 }

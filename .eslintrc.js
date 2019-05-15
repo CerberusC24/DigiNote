@@ -13,5 +13,7 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
+    'no-console': 0,
+    'comma-dangle': 0
   },
 };
