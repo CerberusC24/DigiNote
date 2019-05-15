@@ -7,30 +7,31 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <title>DigiNote</title>
 </head>
 
 <body>
   <main class="hero">
-    <section class="container col-md-8">
-      <div class="card">
+    <div class="row flex-column justify-content-center text-center mx-5">
+      <div class="log-in-form card">
         <div class="card-header">
           DigiNote
         </div>
         <div class="card-body">
-          <form class="textbox-form row">
+          <form class="textbox-form">
             <input type="email" class="form-control py-4" id="emailInput" placeholder="Email">
             <input type="password" class="form-control py-4" id="passwordInput" placeholder="Password">
             <button class="btn btn-block btn-success" type="submit" id="login">Log In</button>
           </form>
         </div>
       </div>
-
-    </section>
-    <section class="col-md-4">
-
-    </section>
+      <div class="card">
+        <div class="card-body">
+          Don't have an account? <a href="sign-up">Click Here</a>.
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
