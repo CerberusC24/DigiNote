@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Category = sequelize.define("Category", {
     categoryTitle: {
       type: DataTypes.STRING,
@@ -9,9 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     },
   });
 
-   User.associate = (models) => {
-    
-
+  Category.associate = (models) => {
     Category.belongsToMany(models.Post, {
       through: 'CategoryPost',
     });

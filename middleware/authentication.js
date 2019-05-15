@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 const jwt = require('jsonwebtoken');
-
+require('dotenv').config();
 const secret = process.env.jwt_pwd;
 
 const withAuth = (req, res, next) => {
@@ -10,8 +10,6 @@ const withAuth = (req, res, next) => {
     req.headers['x-access-token'] ||
     req.headers.authorization ||
     req.cookies.token;
-
-  // req.headers.authorization => "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2Q5OTRiNjQwNTc3ZTRlN2Y4MzM3NzgiLCJlbWFpbCI6ImFsZXgucm9zZW5rcmFuekBnbWFpbC5jb20iLCJpYXQiOjE1NTc3NjMzMzEsImV4cCI6MTU1Nzc2NjkzMX0.mwk49_vIK38YKZ8mZsZOq9joF8ubtbUwRPUz8T0mRVA"
 
   // ["Bearer", "<tokenvalue>"]
   if (req.headers.authorization) {
@@ -32,7 +30,7 @@ const withAuth = (req, res, next) => {
         });
       } else {
         req.email = decoded.email;
-        req._id = decoded._id;
+        req.id = decoded.id;
         next();
       }
     });

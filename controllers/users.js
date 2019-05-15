@@ -1,58 +1,66 @@
 const jwt = require("jsonwebtoken");
-const { User } = require("../models");
+const {
+  User
+} = require("../models");
 const handle = require("../utilities/promise-handler");
 
-const secret = process.env.jwt_pwd;
+const secret = process.env.JWT_PWD;
 
 // registering a new user
 const register = (req, res) => {
-  const {userName, firstName, lastName, password} = req.body;
-  User.create({
+  const {
     userName,
     firstName,
     lastName,
     password
-  })
-  .then(dbUserData => res.json(dbUserData))
-  .catch(err => {
-    console.log(err);
-    res.json(err);
-  });
+  } = req.body;
+  User.create({
+      userName,
+      firstName,
+      lastName,
+      password
+    })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
 };
 
 // logging in an existing user
 const login = async (req, res) => {
   // getting userName and password
-  const {userName, password} = req.body;
+  const {
+    userName,
+    password
+  } = req.body;
 
   // find the user
-  const [findUserErr, userInfo] = await handle(User.findOne({ userName }));
+  const [findUserErr, userInfo] = await handle(User.findOne({
+    userName
+  }));
 
-  if (findUserErr){
+  if (findUserErr) {
     console.log(findUserErr);
     res.status(500).json({
       error: "Ooops! Our bad. Please try again!"
     })
-  }
-  else if (!userInfo){
+  } else if (!userInfo) {
     res.status(401).json({
       error: "Uh-oh, it seems like you have the wrong userName."
     })
-  }
-  else {
+  } else {
     const [pwErr, same] = await handle(userInfo.validPassword(password));
 
-    if (pwErr){
+    if (pwErr) {
       res.status(500).json({
         error: "Our mistake, please try again"
       });
-    }
-    else if (!same){
+    } else if (!same) {
       res.status(401).json({
         error: "Hm, it seems like your password wasn't quite right"
       });
-    }
-    else {
+    } else {
       const payload = {
         id: userInfo.id,
         userName: userInfo.userName
@@ -70,12 +78,18 @@ const login = async (req, res) => {
 
 // getting the user information
 const getUserInfo = async (req, res) => {
-  const [userErr, userInfo] = await (User.findOne({id: req.id}));
+  console.log("got here");
+  console.log(req.id);
+  const [userErr, userInfo] = await handle(User.findOne({
+    where: {
+      id: req.id
+    }
+  }));
 
-  if (userErr){
+  if (userErr) {
+    console.log(userERrr);
     res.status(500).json(userErr);
-  }
-  else {
+  } else {
     res.status(200).json(userInfo);
   }
 };
