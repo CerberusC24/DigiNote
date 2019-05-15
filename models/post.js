@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Post = sequelize.define("Post", {
     title: {
       type: DataTypes.STRING,
@@ -14,9 +14,9 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-   User.associate = (models) => {
-    
-    Post.belongsTo(models.Users, {
+  Post.associate = (models) => {
+
+    Post.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
@@ -37,9 +37,6 @@ module.exports = function(sequelize, DataTypes) {
     Post.belongsToMany(models.Song, {
       through: 'SongPost',
     });
-
-
   };
-
   return Post;
 };

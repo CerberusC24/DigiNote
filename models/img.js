@@ -1,15 +1,16 @@
-module.exports = function(sequelize, DataTypes){
-const Img = sequelize.define("Img", {
+module.exports = function (sequelize, DataTypes) {
+  const Img = sequelize.define("Img", {
 
-  url: {
-    type: DataTypes.STRING,
-    allowNull:false
-  }
-});
+    url: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  });
 
-Img.belongsToMany(models.Post, {
-  through: 'imgPost',
-
-});
-return Img;
+  Img.associate = (models) => {
+    Img.belongsToMany(models.Post, {
+      through: 'ImgPost',
+    });
+  };
+  return Img;
 }

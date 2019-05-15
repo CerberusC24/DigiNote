@@ -14,7 +14,7 @@ module.exports = function (app) {
   });
 
   // dashboard route loads the user dashboard page
-  app.get("/dashboard", function(req, res) {
+  app.get("/user", function(req, res) {
     res.sendFile(path.join(__dirname, "../../public/assets/html/dashboard.html"));
   });
 

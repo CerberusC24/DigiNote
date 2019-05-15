@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const { User } = require("../models");
 const handle = require("../utilities/promise-handler");
 
-const secret = process.env.jwt_pwd;
+const secret = process.env.JWT_PWD;
 
 // registering a new user
 const register = (req, res) => {

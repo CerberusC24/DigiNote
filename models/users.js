@@ -1,4 +1,4 @@
-Modules.export = function (sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define("User", {
     userName: {
       type: DataTypes.STRING,
@@ -32,6 +32,5 @@ Modules.export = function (sequelize, DataTypes) {
       onDelete: "cascade"
     });
   };
-
   return User;
 };

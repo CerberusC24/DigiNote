@@ -1,12 +1,8 @@
 const router = require('express').Router();
-const apiRoutes = require('../api-routes');
+const media = require('./media.js');
+const users = require('./users.js');
 
-router.use('/api', apiRoutes);
-
-router.use((req, res) => {
-  res.json({
-    message: "It's possible you're in the wrong place!"
-  })
-});
+// router.use('/media', media);
+router.use('/users', users);
 
 module.exports = router;
