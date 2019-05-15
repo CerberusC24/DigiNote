@@ -1,2 +1,4 @@
 module.exports = function(sequelize, DataTypes) {
-  var ImgPost = sequelize.define("ImgPost", {})};
+  var ImgPost = sequelize.define("ImgPost", {})
+  return ImgPost;
+};
