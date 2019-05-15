@@ -37,6 +37,10 @@ module.exports = function (sequelize, DataTypes) {
     Post.belongsToMany(models.Song, {
       through: 'SongPost',
     });
+
+    Post.belongsToMany(models.Category, {
+      through: 'CategoryPost',
+    });
   };
   return Post;
 };
