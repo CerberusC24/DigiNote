@@ -1,41 +1,19 @@
-var db = require("../models");
+const router = require("express").Router();
+const withAuth = require("../../middleware/authentication");
 
-module.exports = function(app) {
 
-  // Find all users and return them to the user with res.json
-  app.get("/api/users", function(req, res) {
-    db.User.findAll({}).then(function(dbuser) {
-      res.json(dbuser);
-    });
-  });
+const { getUserInfo, login, register} = require("../../controllers/users")
 
-  app.get("/api/users/:id", function(req, res) {
-    // Find one user with the id in req.params.id and return them to the user with res.json
-    db.User.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbuser) {
-      res.json(dbuser);
-    });
-  });
+router 
+  .route("/")
+  .get(withAuth, getUserInfo);
 
-  app.post("/api/users", function(req, res) {
-    // Create a user with the data available to us in req.body
-    console.log(req.body);
-    db.User.create(req.body).then(function(dbuser) {
-      res.json(dbuser);
-    });
-  });
+router 
+  .route("/login")
+  .post(login);
 
-  app.delete("/api/users/:id", function(req, res) {
-    // Delete the user with the id available to us in req.params.id
-    db.User.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbuser) {
-      res.json(dbuser);
-    });
-  });
-};
+router 
+  .route("/register")
+  .post(register);
+
+  module.exports = router;

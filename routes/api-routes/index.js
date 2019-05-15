@@ -1,12 +1,12 @@
-// this file collects the other routes and provides the endpoint names
 const router = require('express').Router();
-const userRoutes = require('./users');
-const dashboardRoutes = require('./dashboard');
-const mediaRoutes = require('./media');
+const apiRoutes = require('../api-routes');
 
-// prepend endpoints
-router.use('/user', userRoutes);
-router.use('/dashboard', dashboardRoutes);
-router.use('/media', mediaRoutes);
+router.use('/api', apiRoutes);
+
+router.use((req, res) => {
+  res.json({
+    message: "It's possible you're in the wrong place!"
+  })
+});
 
 module.exports = router;
