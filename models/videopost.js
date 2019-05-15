@@ -1,2 +1,4 @@
 module.exports = function(sequelize, DataTypes) {
-  var VideoPost = sequelize.define("VideoPost", {})};
+  var VideoPost = sequelize.define("VideoPost", {})
+  return VideoPost;
+};
