@@ -27,7 +27,19 @@ const getAllBooks = async (req, res) => {
   .catch(err => res.json(err));
 }
 
+// delete book
+const deletePostBook = async (req, res) => {
+  Post.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(dbBookData => res.json(dbBookData))
+    .catch(err => res.json(err));
+}
+
 module.exports = {
   newBook,
-  getAllBooks
+  getAllBooks,
+  deletePostBook
 };

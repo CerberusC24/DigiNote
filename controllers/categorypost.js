@@ -20,7 +20,7 @@ const newCategoryPost = (req, res) => {
 
 // get back all books related to posts
 const getAllCategoryPost = async (req, res) => {
-  BookPost.findAll({
+  CategoryPost.findAll({
     where: {
       PostId: req.params.postid
     }
@@ -32,7 +32,7 @@ const getAllCategoryPost = async (req, res) => {
 // get back posts related to books
 
 const getAllPostCategory = async(req, res) => {
-  BookPost.findAll({
+  CategoryPost.findAll({
     where: {
       BookId: req.params.categoryid
     }

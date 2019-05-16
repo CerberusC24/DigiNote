@@ -1,13 +1,20 @@
 const router = require("express").Router();
 const withAuth = require("../../middleware/authentication");
-const {newImg, getAllImg} = require("../../controllers/img")
+const {
+  newImg,
+  getAllImg,
+  deleteUserImg
+} = require("../../controllers/img")
 
-router 
+router
   .route("/")
   .get(withAuth, getAllImg);
-
-router 
+router
   .route("/")
   .post(withAuth, newImg);
+router
+  .route("/delete/:id")
+  .delete(withAuth, deleteUserImg);
 
-  module.exports = router;
+
+module.exports = router;

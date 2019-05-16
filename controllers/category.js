@@ -41,10 +41,22 @@ const getPostbyCategory = async (req, res) => {
   .catch(err => res.json(err));
 };
 
+// delete user categories
+const deleteUserCategory = async (req, res) => {
+  Post.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(dbCategoryData => res.json(dbCategoryData))
+    .catch(err => res.json(err));
+}
+
 // exporting
 
 module.exports = {
   newCategory,
   getAllCategories,
-  getPostbyCategory
+  getPostbyCategory,
+  deleteUserCategory
 };

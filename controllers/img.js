@@ -27,7 +27,19 @@ const getAllImg = async (req, res) => {
   .catch(err => res.json(err));
 }
 
+// delete user Img
+const deleteUserImg = async (req, res) => {
+  Post.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(dbImgData => res.json(dbImgData))
+    .catch(err => res.json(err));
+}
+
 module.exports = {
   newImg,
-  getAllImg
+  getAllImg,
+  deleteUserImg
 };

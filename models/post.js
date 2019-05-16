@@ -24,22 +24,27 @@ module.exports = function (sequelize, DataTypes) {
 
     Post.belongsToMany(models.Book, {
       through: 'BookPost',
+      onDelete: "cascade"
     });
 
     Post.belongsToMany(models.Video, {
       through: 'VideoPost',
+      onDelete: "cascade"
     });
 
     Post.belongsToMany(models.Img, {
       through: 'ImgPost',
+      onDelete: "cascade"
     });
 
     Post.belongsToMany(models.Song, {
       through: 'SongPost',
+      onDelete: "cascade"
     });
 
     Post.belongsToMany(models.Category, {
       through: 'CategoryPost',
+      onDelete: "cascade"
     });
   };
   return Post;

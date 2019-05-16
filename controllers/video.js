@@ -25,9 +25,21 @@ const getAllVideos = async (req, res) => {
   })
   .then(dbVideoData => res.json(dbVideoData))
   .catch(err => res.json(err));
+};
+
+// delete user videos
+const deleteUserVid = async (req, res) => {
+  Post.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(dbVidData => res.json(dbVidData))
+    .catch(err => res.json(err));
 }
 
 module.exports = {
   newVideo,
-  getAllVideos
+  getAllVideos,
+  deleteUserVid
 };

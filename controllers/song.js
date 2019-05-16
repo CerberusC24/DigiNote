@@ -25,9 +25,21 @@ const getAllSongs = async (req, res) => {
   })
   .then(dbSongData => res.json(dbSongData))
   .catch(err => res.json(err));
+};
+
+// delete user songs
+const deleteUserSong = async (req, res) => {
+  Post.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(dbSongData => res.json(dbSongData))
+    .catch(err => res.json(err));
 }
 
 module.exports = {
   newSong,
-  getAllSongs
+  getAllSongs,
+  deleteUserSong
 };
