@@ -9,19 +9,30 @@ const authorQuery = 'jk rowling';
 // i.e. /api/search/books?intitle=harry+potter&inauthor=jk+rowling => req.query
 // req.query = {intitle: "harry potter", inauthor: "jk rowling"}
 function callBook(req, res) {
+  console.log(req.query);
+  const {
+    title,
+    author
+  } = req.query;
+
+  const query = `inauthor:${author}+intitle:${title}`;
+
   axios.get('https://www.googleapis.com/books/v1/volumes', {
-      params: {
-        q: req.query
-      },
-    }).then((response) => {
-      console.log(JSON.stringify(response.data, null, 2));
-    })
+    params: {
+      q: query,
+    },
+  }).then((response) => {
+    res.json(response.data);
+  })
     .catch((error) => {
       console.log(error);
+      // res.json(error);
       res.json(error);
     });
 }
 
-callBook();
+// callBook();
 
-module.exports = callBook;
+module.exports = {
+  callBook
+}
