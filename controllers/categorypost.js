@@ -1,17 +1,17 @@
 const jwt = require("jsonwebtoken");
 const {
-  BookPost
+  CategoryPost
 } = require("../models");
 
 // create a new BookPost
-const newBookPost = (req, res) => {
+const newCategoryPost = (req, res) => {
   const {
-  BookId, PostId
+  PostId, CategoryId
   } = req.body;
-  BookPost.create({
-      BookId, PostId,
+  CategoryPost.create({
+      PostId, CategoryId
     })
-    .then(dbBookPostData => res.json(dbBookPostData))
+    .then(dbCategoryIdData => res.json(dbCategoryIdData))
     .catch(err => {
       console.log(err);
       res.json(err);
@@ -19,32 +19,32 @@ const newBookPost = (req, res) => {
 };
 
 // get back all books related to posts
-const getAllBookPost = async (req, res) => {
+const getAllCategoryPost = async (req, res) => {
   BookPost.findAll({
     where: {
       PostId: req.params.postid
     }
   })
-  .then(dbBookPostData => res.json(dbBookPostData))
+  .then(dbCategoryIdData => res.json(dbCategoryIdData))
   .catch(err => res.json(err));
 }
 
 // get back posts related to books
 
-const getAllPostBook = async(req, res) => {
+const getAllPostCategory = async(req, res) => {
   BookPost.findAll({
     where: {
-      BookId: req.params.bookid
+      BookId: req.params.categoryid
     }
   })
-  .then(dbBookPostData => res.json(dbBookPostData))
+  .then(dbCategoryIdData => res.json(dbCategoryIdData))
   .catch(err => res.json(err));
 }
 
 // exporting
 
 module.exports = {
-  getAllBookPost,
-  getAllPostBook,
-  newBookPost
+  getAllCategoryPost,
+  getAllPostCategory,
+  newCategoryPost
 };
