@@ -68,7 +68,7 @@ const login = async (req, res) => {
       };
       // assign jwt
       const token = jwt.sign(payload, secret, {
-        expiresIn: "1h"
+        expiresIn: "24h"
       });
 
       // sending webtoken to the front end
@@ -95,10 +95,22 @@ const getUserInfo = async (req, res) => {
   }
 };
 
+// delete user
+const deleteUser = async (req, res) => {
+  Post.destroy({
+      where: {
+        id: req.body.id
+      }
+    })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => res.json(err));
+}
+
 // exporting
 
 module.exports = {
   getUserInfo,
   login,
-  register
+  register,
+  deleteUser
 };

@@ -9,12 +9,12 @@ router
   .post(withAuth, newCategoryPost);
 
 router 
-  .route("/:postid")
+  .route("/post/:postid")
   .get(withAuth, getAllCategoryPost)
 
 
   router
-  .route("/:categoryid")
+  .route("/category/:categoryid")
   .get(withAuth, getAllPostCategory);
 
   module.exports = router;

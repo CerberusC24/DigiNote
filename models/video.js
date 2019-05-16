@@ -10,6 +10,7 @@ module.exports = function (sequelize, DataTypes) {
   Video.associate = (models) => {
     Video.belongsToMany(models.Post, {
       through: 'VideoPost',
+      onDelete: "cascade"
     });
   };
   return Video;
