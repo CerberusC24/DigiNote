@@ -8,12 +8,12 @@ router
   .route("/")
   .post(withAuth, newBookPost);
 router 
-  .route("/:postid")
+  .route("/post/:postid")
   .get(withAuth, getAllBookPost)
 
 
   router
-  .route("/:bookid")
+  .route("/book/:bookid")
   .get(withAuth, getAllPostBook);
 
   module.exports = router;
