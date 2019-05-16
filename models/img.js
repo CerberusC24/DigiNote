@@ -10,6 +10,7 @@ module.exports = function (sequelize, DataTypes) {
   Img.associate = (models) => {
     Img.belongsToMany(models.Post, {
       through: 'ImgPost',
+      onDelete: "cascade"
     });
   };
   return Img;

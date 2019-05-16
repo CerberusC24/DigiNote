@@ -18,6 +18,7 @@ module.exports = function (sequelize, DataTypes) {
   Song.associate = (models) => {
     Song.belongsToMany(models.Post, {
       through: 'SongPost',
+      onDelete: "cascade"
     });
   };
   return Song;
