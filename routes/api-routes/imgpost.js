@@ -1,19 +1,19 @@
 const router = require("express").Router();
 const withAuth = require("../../middleware/authentication");
-const {getAllImgPost,
+const {
+  getAllImgPost,
   getAllPostImg,
-  newImgPost} = require("../../controllers/imgpost")
+  newImgPost
+} = require("../../controllers/imgpost")
 
 router
   .route("/")
   .post(withAuth, newImgPost);
-router 
+router
   .route("/post/:postid")
   .get(withAuth, getAllImgPost)
-
-
-  router
+router
   .route("/Img/:imgid")
   .get(withAuth, getAllPostImg);
 
-  module.exports = router;
+module.exports = router;
