@@ -6,6 +6,7 @@ const book = require('./book');
 const img = require('./img');
 const song = require('./song');
 const video = require('./video');
+const search = require('./booksearch');
 
 // router.use('/media', media);
 router.use('/users', users);
@@ -15,5 +16,6 @@ router.use('/book', book);
 router.use('/img', img);
 router.use('/song', song);
 router.use('/video', video);
+router.use('/booksearch', search);
 
 module.exports = router;

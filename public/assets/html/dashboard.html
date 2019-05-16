@@ -13,7 +13,7 @@
 
 <body>
   <header class="container-fluid">
-    <ul class="nav justify-content-end" id="myTab" role="tablist">
+    <ul class="nav justify-content-end" id="main-nav" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
           aria-selected="true">Home</a>
@@ -40,16 +40,31 @@
     </main>
     <aside class="col-md-6">
       <div class="tab-content border rounded border-dark" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Default Recent Note
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          Default Recent Notes
+          <div class="container">
+            <span id="book-content"></span>
+            <span id="song-content"></span>
+            <span id="tv-content"></span>
+          </div>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Profile Info</div>
         <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab">All media added to notes</div>
+      </div>
+    </aside>
+    <aside class='container'>
+      <div class="row justify-content-end">
+        <input type="text" id="book-title" placeholder="Title">
+        <input type="text" id="book-author" placeholder="Author">
+        <button id="submit-content" class="btn btn-success">Submit</button>
       </div>
     </aside>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="/assets/js/book.js"></script>
+  <script src="/controllers/book.js"></script>
 </body>
 
 </html>
