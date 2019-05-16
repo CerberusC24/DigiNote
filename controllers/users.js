@@ -34,6 +34,7 @@ const login = async (req, res) => {
     userName,
     password
   } = req.body;
+  console.log("it's here")
 
   // find the user
   const [findUserErr, userInfo] = await handle(User.findOne({
