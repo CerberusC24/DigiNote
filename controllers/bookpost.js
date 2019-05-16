@@ -5,6 +5,7 @@ const {
 
 // create a new BookPost
 const newBookPost = (req, res) => {
+  console.log(req.body);
   const {
   BookId, PostId
   } = req.body;
