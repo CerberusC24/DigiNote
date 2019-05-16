@@ -21,8 +21,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
+    "cloudinary": "^1.14.0",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
+    "formidable": "^1.2.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^1.6.5",
     "sequelize": "^5.8.6"
