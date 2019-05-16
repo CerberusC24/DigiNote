@@ -1,14 +1,19 @@
 const router = require("express").Router();
 const withAuth = require("../../middleware/authentication");
-const {newCategory, getAllCategories, getPostbyCategory} = require("../../controllers/category")
+const {
+  newCategory,
+  getAllCategories,
+  getPostbyCategory,
+  deleteUserCategory
+} = require("../../controllers/category")
 
-router 
+router
   .route("/")
   .get(withAuth, getAllCategories)
   .post(withAuth, newCategory);
-
-  router
-  .route("/:name")
+router
+  .route("/delete/:id")
   .get(withAuth, getPostbyCategory)
+  .delete(withAuth, deleteUserCategory);
 
-  module.exports = router;
+module.exports = router;

@@ -1,13 +1,19 @@
 const router = require("express").Router();
 const withAuth = require("../../middleware/authentication");
-const {newVideo, getAllVideos} = require("../../controllers/video")
+const {
+  newVideo,
+  getAllVideos,
+  deleteUserVid
+} = require("../../controllers/video")
 
-router 
+router
   .route("/")
   .get(withAuth, getAllVideos);
-
-router 
+router
   .route("/")
   .post(withAuth, newVideo);
+router
+  .route("/delete/:id")
+  .delete(withAuth, deleteUserVid);
 
-  module.exports = router;
+module.exports = router;

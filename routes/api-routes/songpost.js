@@ -1,19 +1,19 @@
 const router = require("express").Router();
 const withAuth = require("../../middleware/authentication");
-const {getAllSongPost,
+const {
+  getAllSongPost,
   getAllPostSong,
-  newSongPost} = require("../../controllers/songpost")
+  newSongPost
+} = require("../../controllers/songpost")
 
 router
   .route("/")
   .post(withAuth, newSongPost);
-router 
+router
   .route("/post/:postid")
-  .get(withAuth, getAllSongPost)
-
-
-  router
+  .get(withAuth, getAllSongPost);
+router
   .route("/song/:songid")
   .get(withAuth, getAllPostSong);
 
-  module.exports = router;
+module.exports = router;

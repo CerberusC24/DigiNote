@@ -1,20 +1,19 @@
 const router = require("express").Router();
 const withAuth = require("../../middleware/authentication");
-const {getAllCategoryPost,
+const {
+  getAllCategoryPost,
   getAllPostCategory,
-  newCategoryPost} = require("../../controllers/categorypost")
+  newCategoryPost
+} = require("../../controllers/categorypost")
 
 router
   .route("/")
   .post(withAuth, newCategoryPost);
-
-router 
+router
   .route("/post/:postid")
-  .get(withAuth, getAllCategoryPost)
-
-
-  router
+  .get(withAuth, getAllCategoryPost);
+router
   .route("/category/:categoryid")
   .get(withAuth, getAllPostCategory);
 
-  module.exports = router;
+module.exports = router;
