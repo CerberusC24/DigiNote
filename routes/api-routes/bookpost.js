@@ -1,50 +1,19 @@
-const jwt = require("jsonwebtoken");
-const {
-  Post, Book
-} = require("../models");
+const router = require("express").Router();
+const withAuth = require("../../middleware/authentication");
+const {getAllBookPost,
+  getAllPostBook,
+  newBookPost} = require("../../controllers/category")
 
-// create a new category
-const newBookPost = (req, res) => {
-  const {
-    BookId, PostId
-  } = req.body;
-  Category.create({
-      categoryTitle,
-    })
-    .then(dbCategoryData => res.json(dbCategoryData))
-    .catch(err => {
-      console.log(err);
-      res.json(err);
-    });
-};
+router
+  .route("/")
+  .post(withAuth, newBookPost);
+router 
+  .route("/:postid")
+  .get(withAuth, getAllBookPost)
 
-// get back all categories
-const getAllCategories = async (req, res) => {
-  Category.findAll({
 
-  })
-  .then(dbPostData => res.json(dbPostData))
-  .catch(err => res.json(err));
-}
+  router
+  .route("/:bookid")
+  .get(withAuth, getAllPostBook);
 
-// getting the user's categories
-const getPostbyCategory = async (req, res) => {
-  Category.findAll({
-    where: {
-      categoryTitle: req.params.name
-    },
-    // include post
-    include: [Post]
-    // // end include post
-  })
-  .then(dbPostData => res.json(dbPostData))
-  .catch(err => res.json(err));
-};
-
-// exporting
-
-module.exports = {
-  newCategory,
-  getAllCategories,
-  getPostbyCategory
-};
+  module.exports = router;
