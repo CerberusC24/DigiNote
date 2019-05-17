@@ -1,19 +1,19 @@
 const router = require("express").Router();
 const withAuth = require("../../middleware/authentication");
 const {
-  newVideo,
-  getAllVideos,
-  deleteUserVid
-} = require("../../controllers/video")
+  newMovie,
+  getAllMovies,
+  deleteUserMovie
+} = require("../../controllers/movie")
 
 router
   .route("/")
-  .get(withAuth, getAllVideos);
+  .get(withAuth, getAllMovies);
 router
   .route("/")
-  .post(withAuth, newVideo);
+  .post(withAuth, newMovie);
 router
   .route("/delete/:id")
-  .delete(withAuth, deleteUserVid);
+  .delete(withAuth, deleteUserMovie);
 
 module.exports = router;

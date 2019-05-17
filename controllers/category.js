@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const {
-  User, Post, Book, Category, Img, Song, Video
+  Post, Category
 } = require("../models");
 
 // create a new category
@@ -43,7 +43,7 @@ const getPostbyCategory = async (req, res) => {
 
 // delete user categories
 const deleteUserCategory = async (req, res) => {
-  Post.destroy({
+  Category.destroy({
       where: {
         id: req.body.id
       }

@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const {
-  User, Post, Book, Category, Img, Song, Video
+  Img
 } = require("../models");
 
 // create a new Img
@@ -29,7 +29,7 @@ const getAllImg = async (req, res) => {
 
 // delete user Img
 const deleteUserImg = async (req, res) => {
-  Post.destroy({
+  Img.destroy({
       where: {
         id: req.body.id
       }

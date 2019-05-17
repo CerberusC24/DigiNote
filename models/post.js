@@ -27,8 +27,8 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: "cascade"
     });
 
-    Post.belongsToMany(models.Video, {
-      through: 'VideoPost',
+    Post.belongsToMany(models.Movie, {
+      through: 'MoviePost',
       onDelete: "cascade"
     });
 
