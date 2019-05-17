@@ -12,6 +12,7 @@ const categorypost = require('./categorypost');
 const imgpost = require('./imgpost');
 const songpost = require('./songpost');
 const videopost = require('./videopost');
+const songsearch = require('./songsearch');
 
 router.use('/users', users);
 router.use('/post', posts);
@@ -26,5 +27,6 @@ router.use('/categorypost', categorypost);
 router.use('/imgpost', imgpost);
 router.use('/songpost', songpost);
 router.use('/videopost', videopost);
+router.use('/songsearch', songsearch);
 
 module.exports = router;
