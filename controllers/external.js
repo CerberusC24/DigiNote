@@ -21,6 +21,7 @@ function callBook(req, res) {
       q: query
     },
   }).then((response) => {
+
     res.json(response.data);
   })
     .catch((error) => {
@@ -28,7 +29,7 @@ function callBook(req, res) {
       // res.json(error);
       res.json(error);
     });
-}
+ }
 
 function spotifyThis() {
   let searchQuery;
