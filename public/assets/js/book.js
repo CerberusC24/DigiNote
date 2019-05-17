@@ -22,7 +22,6 @@ $(document).ready(() => {
   // });
 
   // add new book
-
   $('#submit-content').on('click', (event) => {
     event.preventDefault();
 
@@ -31,18 +30,31 @@ $(document).ready(() => {
       author: $('#book-author').val().trim()
     };
 
-    $.post("/api/book", bookObj)
-      .then(function () {
+    $.ajax({
+      url: `/api/booksearch?title=${bookObj.title}&author=${bookObj.author}`,
+      method: 'get',
+    })
+      .then(function (response) {
+        console.log(response);
+        const data = response.items[0].volumeInfo
         const bookContentDiv = $("<div>");
+        const bookImg = $("<img>");
+        bookImg.attr("src", data.imageLinks.thumbnail);
         bookContentDiv.attr("data-title", bookObj.title);
         bookContentDiv.attr("data-author", bookObj.author);
-        bookContentDiv.text(`${bookObj.title} by ${bookObj.author}`)
+        bookContentDiv.text(`${data.title} by ${data.authors[0]}
+        Date published: ${data.publishedDate} Pages: ${data.pageCount} Book Rating: ${data.averageRating}`)
+        bookImg.appendTo(bookContentDiv);
         $("#book-content").append(bookContentDiv);
 
-        console.log(bookContentDiv);
+        console.log(data.imageLinks.thumbnail);
         console.log(bookObj);
       })
-
+      .catch(function (err) {
+        console.log(err);
+      });
   });
 
 });
+
+// JSON.stringify(response, null, 2)

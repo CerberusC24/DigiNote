@@ -10,7 +10,7 @@ const bookpost = require('./bookpost');
 const categorypost = require('./categorypost');
 const imgpost = require('./imgpost');
 const songpost = require('./songpost');
-const videopost = require('./moviepost');
+const moviepost = require('./moviepost');
 const external = require('./external');
 
 router.use('/users', users);
@@ -24,7 +24,7 @@ router.use('/bookpost', bookpost);
 router.use('/categorypost', categorypost);
 router.use('/imgpost', imgpost);
 router.use('/songpost', songpost);
-router.use('/moviepost', videopost);
+router.use('/moviepost', moviepost);
 router.use('/external', external);
 
 module.exports = router;

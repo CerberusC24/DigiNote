@@ -66,7 +66,7 @@ function movieThis() {
   }
 
   axios
-    .get(`http://www.omdbapi.com/?t=${searchQuery}&apikey=trilogy`)
+    .get(`http://www.omdbapi.com/?t=${searchQuery}&apikey=${OMDB_API_KEY}`)
     .then(function (response) {
       console.log(`
       Movie Title: ${response.data.Title}
