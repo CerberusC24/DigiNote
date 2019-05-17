@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <!-- start container wrapping the entire page -->
+<div class="container">
+    <!-- create row that will hold the top bar -->
+    <div class="row">
+      <!-- start nav col-12 -->
+      <div id="navBar" class="col-12 col-md-12">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+              aria-selected="true">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+              aria-selected="false">Profile</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" id="media-tab" data-toggle="tab" href="#media" role="tab" aria-controls="media"
+              aria-selected="false">Media</a>
+          </li>
+        </ul>
+      </div>
+      <!-- end nav col-12 -->
+    </div>
+    <!-- end row that will hold the top bar -->
+
+    <!-- start second row containing left side col and  main col and aside-->
+    <div class="row my-4">
+      <!-- start left aside -->
+      <aside class="col-3 col-md-3">
+        <!-- start a card to put this list in -->
+        <div class="card">
+          <div class="card-body">
+              <ul id="note-list" class="list-group">
+            
+                </ul>
+          </div>
+        </div>
+        
+        <!-- end card to put list in -->
+      </aside>
+      <!-- end left aside -->
+  
+      <!-- start right main area -->
+      <main class="col-6 col-md-6">
+       
+        <!-- start div fade area -->
+        <div class="tab-content border rounded border-dark" id="myTabContent">
+          <!-- start div fade area for the note form -->
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <!-- start #note-form area -->
+        <form class="tab-content border rounded border-dark" id="note-form">
+            <!-- start #title-input area -->
+            <div class="form-group">
+              <label for="title-input">Title</label>
+              <input class="form-control" type="text" placeholder="Title" id="titleInput">
+            </div>
+            <!-- end title input area -->
+            <!-- start #main-input area -->
+            <div class="form-group">
+              <label for="main-input">Notes</label>
+              <textarea class="form-control" id="mainInput" rows="10"></textarea>
+            </div>
+            <!-- end #mainInput area -->
+            <!-- start button area -->
+            <div id="btnArea" class="col-12 col-md-12">
+              <button id="saveBtn" type="button" class="btn">Save</button>
+            </div>
+            <!-- end button area -->
+          </form>
+          <!-- end form area -->
+  
+          </div>
+          <!-- end div fade area for the note form -->
+
+          <!-- start div fade for the media area -->
+          <div class="tab-pane fade" id="media" role="tabpanel" aria-labelledby="media-tab">
+            <!-- start show all categories card holding ul #all-categories-->
+            <div class="card">
+              <div class="card-body">
+                <ul id="all-categories">
+                  <!-- all categories can be listed here -->
+                </ul>
+              </div>
+            </div>
+            <!-- end show all categories card #all-categories-->
+
+            <!-- start show all books card hold ul #all-books -->
+            <div class="card">
+                <div class="card-body">
+                  <ul id="all-books">
+                    <!-- all books will be listed here -->
+                  </ul>
+                </div>
+              </div>
+              <!-- end show all books card hold ul #all-books -->
+
+              <!-- start show all movies card hold ul #all-movies -->
+            <div class="card">
+                <div class="card-body">
+                  <ul id="all-movies">
+                    <!-- all movies will be listed here -->
+                  </ul>
+                </div>
+              </div>
+              <!-- end show all movies card hold ul #all-movies -->
+
+              <!-- start show all books card hold ul #all-songs -->
+            <div class="card">
+                <div class="card-body">
+                  <ul id="all-songs">
+                    <!-- all books will be listed here -->
+                  </ul>
+                </div>
+              </div>
+              <!-- end show all books card hold ul #all-songs -->
+          </div>
+          <!-- end div fade for the media area -->
+        </div>
+        <!-- end div fade area -->
+        
+      </main>
+      <!-- end right main area -->
+
+      <!-- start right aside to hold information attached to the current note-->
+      <aside class="col-3 col-md-3">
+        <!-- start card holding ul #category-card -->
+        <div class="card">
+          <div class="card-body">
+            <ul id="category-card">
+              <!-- category list goes here -->
+            </ul>
+          </div>
+        </div>
+        <!-- end card holding category -->
+
+        <!-- start card holding ul #book-card -->
+        <div class="card">
+          <div class="card-body">
+            <ul id="book-card">
+              <!-- book list goes here -->
+            </ul>
+          </div>
+        </div>
+        <!-- end card holding ul #book-card -->
+        <!-- start card holding ul #song-card -->
+        <div class="card">
+          <div class="card-body">
+            <ul id="song-card">
+
+            </ul>
+          </div>
+        </div>
+        <!-- end card holding ul #song-card -->
+
+        <!-- start card holding ul #movie-card -->
+        <div class="card">
+          <div class="card-body">
+            <ul id="movie-card">
+              <!-- movie list goes here -->
+            </ul>
+          </div>
+        </div>
+        <!-- end card holding ul #movie-card -->
+
+        <!-- start search card -->
+        <div class="card">
+          <div class="card-body">
+            <!-- start book search card -->
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-header">
+                  Book Search
+                </h2>
+                <!-- start book search -->
+            <form id="book-search-form">
+                <label for="book-title">Title</label>
+                <input type="text" class="form-control" id="book-title" placeholder="Great Expectations">
+
+                <label for="book-author">Author</label>
+                <input type="text" class="form-control" id="book-author" placeholder="Charles Dickens">
+
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <!-- end book search -->
+              </div>
+            </div>
+            <!-- end book search card -->
+
+            <!-- start song search card -->
+            <div class="card">
+              <div class="card-body">
+                  <h2 class="card-header">
+                      Song Search
+                    </h2>
+                <!-- start song search -->
+            <form id="book-search-form">
+                <label for="song-title">Title</label>
+                <input type="text" class="form-control" id="song-title" placeholder="Great Expectations">
+
+                <label for="song-artist">Artist</label>
+                <input type="text" class="form-control" id="song-artist" placeholder="Charles Dickens">
+
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <!-- end song search -->
+              </div>
+            </div>
+            <!-- end song search card -->
+
+            <!-- start movie search card -->
+            <div class="card">
+              <div class="card-body">
+                  <h2 class="card-header">
+                      Movie Search
+                    </h2>
+                <!-- start movie search -->
+            <form id="movie-search-form">
+                <label for="movie-title">Title</label>
+                <input type="text" class="form-control" id="movie-title" placeholder="Great Expectations">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <!-- end book search -->
+              </div>
+            </div>
+            <!-- end movie search card -->
+
+            
+          </div>
+        </div>
+        <!-- end search card -->
+
+        <!-- start search results card hold ul #search-results-->
+        <div class="card">
+          <div class="card-body">
+              <h2 class="card-header">
+                  Search Results
+              </h2>
+              <ul id="search-results">
+                <!-- search results will append here -->
+              </ul>
+          </div>
+        </div>
+        <!-- end search results card -->
+      </aside>
+      <!-- end right aside to hold information attached to the current note -->
+    </div>
+    <!-- end second row containing left side col and right main col -->
+  </div>
+  <!-- end container wrapping the page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="assets/js/book.js"></script>
+</body>
+
+</html>
