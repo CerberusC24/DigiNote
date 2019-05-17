@@ -31,8 +31,6 @@ function callBook(req, res) {
     });
 }
 
-// callBook();
-
 module.exports = {
   callBook
-}
+};
