@@ -52,7 +52,3 @@ $(document).ready(() => {
   });
 
 });
-
-// JSON.stringify(response, null, 2)
-
-console.log('hi')
