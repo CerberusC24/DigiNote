@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const {
-  User, Post, Book, Category, Img, Song, Video
+  Song
 } = require("../models");
 
 // create a new song
@@ -29,7 +29,7 @@ const getAllSongs = async (req, res) => {
 
 // delete user songs
 const deleteUserSong = async (req, res) => {
-  Post.destroy({
+  Song.destroy({
       where: {
         id: req.body.id
       }

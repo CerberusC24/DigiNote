@@ -1,17 +1,17 @@
 module.exports = function (sequelize, DataTypes) {
 
-  const Video = sequelize.define("Video", {
+  const Movie = sequelize.define("Movie", {
     url: {
       type: DataTypes.STRING,
       allowNull: false,
     }
   });
 
-  Video.associate = (models) => {
-    Video.belongsToMany(models.Post, {
-      through: 'VideoPost',
+  Movie.associate = (models) => {
+    Movie.belongsToMany(models.Post, {
+      through: 'MoviePost',
       onDelete: "cascade"
     });
   };
-  return Video;
+  return Movie;
 };
