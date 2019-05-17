@@ -22,13 +22,14 @@ function callBook(req, res) {
       q: query
     },
   }).then((response) => {
+
     res.json(response.data);
   })
     .catch((error) => {
       console.log(error);
       res.json(error);
     });
-}
+ }
 
 // GET '/api/searchsong'
 // Parameters = artist & track

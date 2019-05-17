@@ -6,7 +6,6 @@ const {
   callBook
 } = require('../../controllers/external');
 
-// localhost:3000/api/search/song
 router
   .route('/song')
   .get(spotifyThis);
