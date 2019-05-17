@@ -16,12 +16,8 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
     year: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATE,
       allowNull: false,
-    },
-    plot: {
-      type: DataTypes.STRING,
-      allowNull: true,
     },
     rating: {
       type: DataTypes.INTEGER,

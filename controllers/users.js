@@ -38,7 +38,7 @@ const login = async (req, res) => {
   console.log("it's here")
 
   // find the user
-  const [findUserErr, userInfo] = await handle(User.findOne({where: {userName}}));
+  const [findUserErr, userInfo] = await handle(User.findOne({ where: { userName } }));
 
   if (findUserErr) {
     console.log(findUserErr);

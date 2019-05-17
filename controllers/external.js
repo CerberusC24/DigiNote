@@ -29,7 +29,7 @@ function callBook(req, res) {
       console.log(error);
       res.json(error);
     });
- }
+}
 
 // GET '/api/searchsong'
 // Parameters = artist & track
@@ -54,11 +54,6 @@ const spotifyThis = (req, res) => {
 
 function movieThis() {
   let searchQuery;
-
-  if (!searchQuery) {
-    console.log('You forgot to search for a movie title');
-    return false;
-  }
 
   axios
     .get(`http://www.omdbapi.com/?t=${searchQuery}&apikey=${OMDB_API_KEY}`)
