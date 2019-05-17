@@ -4,6 +4,7 @@ const {
 } = require("../models");
 const handle = require("../utilities/promise-handler");
 
+require('dotenv').config();
 const secret = process.env.JWT_PWD;
 
 // registering a new user
@@ -15,11 +16,11 @@ const register = (req, res) => {
     password
   } = req.body;
   User.create({
-      userName,
-      firstName,
-      lastName,
-      password
-    })
+    userName,
+    firstName,
+    lastName,
+    password
+  })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
       console.log(err);
@@ -37,9 +38,7 @@ const login = async (req, res) => {
   console.log("it's here")
 
   // find the user
-  const [findUserErr, userInfo] = await handle(User.findOne({
-    userName
-  }));
+  const [findUserErr, userInfo] = await handle(User.findOne({where: {userName}}));
 
   if (findUserErr) {
     console.log(findUserErr);
@@ -98,10 +97,10 @@ const getUserInfo = async (req, res) => {
 // delete user
 const deleteUser = async (req, res) => {
   Post.destroy({
-      where: {
-        id: req.body.id
-      }
-    })
+    where: {
+      id: req.body.id
+    }
+  })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => res.json(err));
 }

@@ -21,45 +21,35 @@ function callBook(req, res) {
       q: query
     },
   }).then((response) => {
+
     res.json(response.data);
   })
     .catch((error) => {
       console.log(error);
-      // res.json(error);
       res.json(error);
     });
  }
 
-function spotifyThis() {
-  let searchQuery;
+// GET '/api/searchsong'
+// Parameters = artist & track
+// example of query => localhost:3000/api/searchsong?artist=beatles&track=come+together
+const spotifyThis = (req, res) => {
+  const {
+    artist,
+    track
+  } = req.query;
 
-  if (!searchQuery) {
-    console.log('You forgot to search for a song.');
-    return false;
-  }
+  const queryString = `https://api.spotify.com/v1/search?type=track&q=artist:${artist}&track:${track}`;
 
-  spotify
-    .search({
-      type: 'artist',
-      query: searchQuery,
-    })
-    .then((response) => {
-      const artist = response.tracks.items[0].artists[0].name;
-      const title = response.tracks.items[0].name;
-      const album = response.tracks.items[0].album.name;
-      const previewLink = response.tracks.items[0].preview_url;
-
-      console.log(`
-      Artist: ${artist}
-      Song Title: ${title}
-      Album Name: ${album}
-      Preview: ${previewLink}
-`);
-    })
-    .catch((err) => {
+  spotify.request(queryString, (err, data) => {
+    if (err) {
       console.log(err);
-    });
-}
+      return res.json(err);
+    }
+
+    res.json(data);
+  });
+};
 
 function movieThis() {
   let searchQuery;
