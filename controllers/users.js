@@ -16,11 +16,11 @@ const register = (req, res) => {
     password
   } = req.body;
   User.create({
-      userName,
-      firstName,
-      lastName,
-      password
-    })
+    userName,
+    firstName,
+    lastName,
+    password
+  })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
       console.log(err);
@@ -97,10 +97,10 @@ const getUserInfo = async (req, res) => {
 // delete user
 const deleteUser = async (req, res) => {
   Post.destroy({
-      where: {
-        id: req.body.id
-      }
-    })
+    where: {
+      id: req.body.id
+    }
+  })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => res.json(err));
 }

@@ -7,13 +7,15 @@ const {
 } = require('../../controllers/external');
 
 router
-  .route('/api/song/search')
-  .get(withAuth, spotifyThis);
+  .route('/song')
+  .get(spotifyThis);
+
 router
-  .route('/api/movie/search')
-  .get(withAuth, movieThis)
-  router
-  .route('/api/book/search')
-  .get(withAuth, callBook);
+  .route('/movie')
+  .get(movieThis);
+
+router
+  .route('/book')
+  .get(callBook);
 
 module.exports = router;

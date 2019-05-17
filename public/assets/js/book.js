@@ -31,23 +31,19 @@ $(document).ready(() => {
     };
 
     $.ajax({
-      url: `/api/booksearch?title=${bookObj.title}&author=${bookObj.author}`,
+      url: `/api/search/book?title=${bookObj.title}&author=${bookObj.author}`,
       method: 'get',
     })
       .then(function (response) {
         console.log(response);
         const data = response.items[0].volumeInfo
         const bookContentDiv = $("<div>");
-        const bookImg = $("<img>");
-        bookImg.attr("src", data.imageLinks.thumbnail);
         bookContentDiv.attr("data-title", bookObj.title);
         bookContentDiv.attr("data-author", bookObj.author);
         bookContentDiv.text(`${data.title} by ${data.authors[0]}
         Date published: ${data.publishedDate} Pages: ${data.pageCount} Book Rating: ${data.averageRating}`)
-        bookImg.appendTo(bookContentDiv);
         $("#book-content").append(bookContentDiv);
 
-        console.log(data.imageLinks.thumbnail);
         console.log(bookObj);
       })
       .catch(function (err) {
@@ -56,5 +52,3 @@ $(document).ready(() => {
   });
 
 });
-
-// JSON.stringify(response, null, 2)
