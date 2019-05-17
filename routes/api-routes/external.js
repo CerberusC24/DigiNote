@@ -6,15 +6,17 @@ const {
   callBook
 } = require('../../controllers/external');
 
+// localhost:3000/api/search/song
 router
-  .route('/song/search')
+  .route('/song')
   .get(withAuth, spotifyThis);
-router
-  .route('/movie/search')
-  .get(withAuth, movieThis)
 
-  router
-  .route('/book/search')
+router
+  .route('/movie')
+  .get(withAuth, movieThis);
+
+router
+  .route('/book')
   .get(callBook);
 
 module.exports = router;

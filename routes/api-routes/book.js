@@ -11,9 +11,10 @@ router
   .get(withAuth, getAllBooks);
 router
   .route('/')
-  .post(withAuth, newBook)
+  .post(withAuth, newBook);
+
 router
-  .route("/delete/:id")
+  .route('/delete/:id')
   .delete(withAuth, deletePostBook);
 
 module.exports = router;
