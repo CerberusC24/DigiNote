@@ -4,6 +4,7 @@ const {
 } = require("../models");
 const handle = require("../utilities/promise-handler");
 
+require('dotenv').config();
 const secret = process.env.JWT_PWD;
 
 // registering a new user
@@ -37,9 +38,7 @@ const login = async (req, res) => {
   console.log("it's here")
 
   // find the user
-  const [findUserErr, userInfo] = await handle(User.findOne({
-    userName
-  }));
+  const [findUserErr, userInfo] = await handle(User.findOne({where: {userName}}));
 
   if (findUserErr) {
     console.log(findUserErr);

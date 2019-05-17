@@ -6,21 +6,28 @@ const axios = require('axios');
 const Spotify = require('node-spotify-api')
 const spotify = new Spotify(keys.spotify);
 
-function callBook(req, res) {  
-  
-  axios
-  .get('https://www.googleapis.com/books/v1/volumes', {
-      params: {
-        q: req.query
-      },
-    }).then((response) => {
-      console.log(JSON.stringify(response.data, null, 2));
-    })
+function callBook(req, res) {
+  console.log(req.query);
+  const {
+    title,
+    author
+  } = req.query;
+ 
+  const query = `inauthor:${author}+intitle:${title}`;
+ 
+  axios.get('https://www.googleapis.com/books/v1/volumes', {
+    params: {
+      q: query
+    },
+  }).then((response) => {
+    console.log(JSON.stringify(response.data, null, 2));
+  })
     .catch((error) => {
       console.log(error);
+      // res.json(error);
       res.json(error);
     });
-}
+ }
 
 function spotifyThis() {
 
