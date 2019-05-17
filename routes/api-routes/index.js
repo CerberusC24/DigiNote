@@ -25,6 +25,6 @@ router.use('/categorypost', categorypost);
 router.use('/imgpost', imgpost);
 router.use('/songpost', songpost);
 router.use('/moviepost', moviepost);
-router.use('/external', external);
+router.use('/search', external);
 
 module.exports = router;
