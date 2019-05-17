@@ -34,3 +34,9 @@ body {
 .home-form {
   justify-content: center;
 }
+
+.diginote-font {
+  font-family: 'Baloo Bhai',
+    cursive;
+
+}
