@@ -8,12 +8,12 @@ const {
 
 router
   .route("/")
-  .post(withAuth, newBookPost);
+  .post(newBookPost);
 router
   .route("/post/:postid")
-  .get(withAuth, getAllBookPost)
+  .get(getAllBookPost)
 router
   .route("/book/:bookid")
-  .get(withAuth, getAllPostBook);
+  .get(getAllPostBook);
 
 module.exports = router;

@@ -21,13 +21,11 @@ function registerUser(event) {
     password
   }
 
-  console.log(signUpData);
-
   $.ajax({
-      url: '/api/users/register',
-      method: 'post',
-      data: signUpData,
-    })
+    url: '/api/users/register',
+    method: 'post',
+    data: signUpData,
+  })
     .then(res => {
       console.log(res);
     })
@@ -35,7 +33,7 @@ function registerUser(event) {
       console.log(err);
     });
 }
-
+console.log('hi')
 function loginUser(event) {
   event.preventDefault();
 
@@ -52,31 +50,12 @@ function loginUser(event) {
   };
 
   $.ajax({
-      url: '/api/users/login',
-      method: 'post',
-      data: loginData
-    })
+    url: '/api/users/login',
+    method: 'post',
+    data: loginData
+  })
     .then(token => {
       localStorage.setItem('accessToken', token);
-      getUserProfile();
-    })
-    .catch(err => {
-      console.log(err);
-    });
-}
-
-function getUserProfile() {
-  const token = localStorage.getItem('accessToken');
-
-  $.ajax({
-      url: '/api/dashboard',
-      method: 'get',
-      headers: {
-        authorization: `Bearer ${token}`
-      }
-    })
-    .then(userData => {
-      console.log(userData);
       var dashboardUrl = `/dashboard`
       location.href = dashboardUrl;
 
@@ -86,7 +65,7 @@ function getUserProfile() {
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
   $("#sign-up").on("click", registerUser);
-  $("#login").on("click", loginUser, getUserProfile);
+  $("#login").on("click", loginUser);
 })
