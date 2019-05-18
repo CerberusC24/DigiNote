@@ -22,7 +22,7 @@ $(document).ready(() => {
   // });
 
   // add new book
-  $('#submit-content').on('click', (event) => {
+  $('#search-book').on('click', (event) => {
     event.preventDefault();
 
     const bookObj = {
@@ -35,20 +35,40 @@ $(document).ready(() => {
       method: 'get',
     })
       .then(function (response) {
-        console.log(response);
         const data = response.items[0].volumeInfo
-        const bookContentDiv = $("<div>");
+        const bookContentDiv = $(`<div class="mb-3">`);
         bookContentDiv.attr("data-title", bookObj.title);
         bookContentDiv.attr("data-author", bookObj.author);
         bookContentDiv.text(`${data.title} by ${data.authors[0]}
         Date published: ${data.publishedDate} Pages: ${data.pageCount} Book Rating: ${data.averageRating}`)
-        $("#book-content").append(bookContentDiv);
+        $("#book-card").append(bookContentDiv);
 
-        console.log(bookObj);
-      })
-      .catch(function (err) {
+        var bookInput =
+        {
+          title: bookObj.title,
+          authors: bookObj.author,
+          pages: data.pageCount,
+          year: data.publishedDate,
+          plot: data.description,
+          rating: data.averageRating
+        };
+
+        // get access token
+        const token = localStorage.getItem("accessToken");
+
+        $.ajax({
+          url: "/api/book",
+          method: "POST",
+          data: bookInput,
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        }).then(function (bookData) {
+          console.log(bookData)
+        });
+      }).catch(function (err) {
         console.log(err);
       });
   });
-
 });
+

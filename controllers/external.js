@@ -75,11 +75,6 @@ function movieThis(req, res) {
   console.log(req.query)
   let searchQuery = req.query.title
 
-  if (!searchQuery) {
-    console.log('You forgot to search for a movie title');
-    return false;
-  }
-
   axios
     .get(`http://www.omdbapi.com/?t=${searchQuery}&apikey=${process.env.omdbkey}`)
     .then((response) => {

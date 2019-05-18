@@ -13,22 +13,22 @@
 
 <body>
   <!-- start container wrapping the entire page -->
-<div class="container">
+  <div class="container">
     <!-- create row that will hold the top bar -->
     <div class="row">
       <!-- start nav col-12 -->
       <div id="navBar" class="col-12 col-md-12">
         <ul class="nav justify-content-end">
           <li class="nav-item">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
               aria-selected="true">Home</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
               aria-selected="false">Profile</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" id="media-tab" data-toggle="tab" href="#media" role="tab" aria-controls="media"
+            <a class="nav-link" id="media-tab" data-toggle="tab" href="#media" role="tab" aria-controls="media"
               aria-selected="false">Media</a>
           </li>
         </ul>
@@ -44,45 +44,45 @@
         <!-- start a card to put this list in -->
         <div class="card">
           <div class="card-body">
-              <ul id="note-list" class="list-group">
-            
-                </ul>
+            <ul id="note-list" class="list-group">
+
+            </ul>
           </div>
         </div>
-        
+
         <!-- end card to put list in -->
       </aside>
       <!-- end left aside -->
-  
+
       <!-- start right main area -->
       <main class="col-6 col-md-6">
-       
+
         <!-- start div fade area -->
         <div class="tab-content border rounded border-dark" id="myTabContent">
           <!-- start div fade area for the note form -->
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <!-- start #note-form area -->
-        <form class="tab-content border rounded border-dark" id="note-form">
-            <!-- start #title-input area -->
-            <div class="form-group">
-              <label for="title-input">Title</label>
-              <input class="form-control" type="text" placeholder="Title" id="titleInput">
-            </div>
-            <!-- end title input area -->
-            <!-- start #main-input area -->
-            <div class="form-group">
-              <label for="main-input">Notes</label>
-              <textarea class="form-control" id="mainInput" rows="10"></textarea>
-            </div>
-            <!-- end #mainInput area -->
-            <!-- start button area -->
-            <div id="btnArea" class="col-12 col-md-12">
-              <button id="saveBtn" type="button" class="btn">Save</button>
-            </div>
-            <!-- end button area -->
-          </form>
-          <!-- end form area -->
-  
+            <form class="tab-content border rounded border-dark" id="note-form">
+              <!-- start #title-input area -->
+              <div class="form-group">
+                <label for="title-input">Title</label>
+                <input class="form-control" type="text" placeholder="Title" id="titleInput">
+              </div>
+              <!-- end title input area -->
+              <!-- start #main-input area -->
+              <div class="form-group">
+                <label for="main-input">Notes</label>
+                <textarea class="form-control" id="mainInput" rows="10"></textarea>
+              </div>
+              <!-- end #mainInput area -->
+              <!-- start button area -->
+              <div id="btnArea" class="col-12 col-md-12">
+                <button id="saveBtn" type="button" class="btn">Save</button>
+              </div>
+              <!-- end button area -->
+            </form>
+            <!-- end form area -->
+
           </div>
           <!-- end div fade area for the note form -->
 
@@ -100,38 +100,38 @@
 
             <!-- start show all books card hold ul #all-books -->
             <div class="card">
-                <div class="card-body">
-                  <ul id="all-books">
-                    <!-- all books will be listed here -->
-                  </ul>
-                </div>
+              <div class="card-body">
+                <ul id="all-books">
+                  <!-- all books will be listed here -->
+                </ul>
               </div>
-              <!-- end show all books card hold ul #all-books -->
+            </div>
+            <!-- end show all books card hold ul #all-books -->
 
-              <!-- start show all movies card hold ul #all-movies -->
+            <!-- start show all movies card hold ul #all-movies -->
             <div class="card">
-                <div class="card-body">
-                  <ul id="all-movies">
-                    <!-- all movies will be listed here -->
-                  </ul>
-                </div>
+              <div class="card-body">
+                <ul id="all-movies">
+                  <!-- all movies will be listed here -->
+                </ul>
               </div>
-              <!-- end show all movies card hold ul #all-movies -->
+            </div>
+            <!-- end show all movies card hold ul #all-movies -->
 
-              <!-- start show all books card hold ul #all-songs -->
+            <!-- start show all books card hold ul #all-songs -->
             <div class="card">
-                <div class="card-body">
-                  <ul id="all-songs">
-                    <!-- all books will be listed here -->
-                  </ul>
-                </div>
+              <div class="card-body">
+                <ul id="all-songs">
+                  <!-- all books will be listed here -->
+                </ul>
               </div>
-              <!-- end show all books card hold ul #all-songs -->
+            </div>
+            <!-- end show all books card hold ul #all-songs -->
           </div>
           <!-- end div fade for the media area -->
         </div>
         <!-- end div fade area -->
-        
+
       </main>
       <!-- end right main area -->
 
@@ -186,16 +186,16 @@
                   Book Search
                 </h2>
                 <!-- start book search -->
-            <form id="book-search-form">
-                <label for="book-title">Title</label>
-                <input type="text" class="form-control" id="book-title" placeholder="Great Expectations">
+                <form id="book-search-form">
+                  <label for="book-title">Title</label>
+                  <input type="text" class="form-control" id="book-title" placeholder="Great Expectations">
 
-                <label for="book-author">Author</label>
-                <input type="text" class="form-control" id="book-author" placeholder="Charles Dickens">
+                  <label for="book-author">Author</label>
+                  <input type="text" class="form-control" id="book-author" placeholder="Charles Dickens">
 
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
-            <!-- end book search -->
+                  <button type="submit" id="search-book" class="btn btn-primary">Search</button>
+                </form>
+                <!-- end book search -->
               </div>
             </div>
             <!-- end book search card -->
@@ -203,20 +203,26 @@
             <!-- start song search card -->
             <div class="card">
               <div class="card-body">
-                  <h2 class="card-header">
-                      Song Search
-                    </h2>
+                <h2 class="card-header">
+                  Song Search
+                </h2>
                 <!-- start song search -->
-            <form id="book-search-form">
-                <label for="song-title">Title</label>
-                <input type="text" class="form-control" id="song-title" placeholder="Great Expectations">
+                <form id="book-search-form">
+                  <label for="song-title">Title</label>
+                  <input type="text" class="form-control" id="song-title" placeholder="Great Expectations">
 
-                <label for="song-artist">Artist</label>
-                <input type="text" class="form-control" id="song-artist" placeholder="Charles Dickens">
+                  <label for="song-artist">Artist</label>
+                  <input type="text" class="form-control" id="song-artist" placeholder="Charles Dickens">
 
+<<<<<<< HEAD
                 <button id="song-search-btn" type="submit" class="btn btn-primary">Search</button>
             </form>
             <!-- end song search -->
+=======
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <!-- end song search -->
+>>>>>>> 7ad1d562108ed371c103afc2e867ef402969e2cf
               </div>
             </div>
             <!-- end song search card -->
@@ -224,21 +230,30 @@
             <!-- start movie search card -->
             <div class="card">
               <div class="card-body">
-                  <h2 class="card-header">
-                      Movie Search
-                    </h2>
+                <h2 class="card-header">
+                  Movie Search
+                </h2>
                 <!-- start movie search -->
+<<<<<<< HEAD
             <form id="movie-search-form">
                 <label for="movie-title">Title</label>
                 <input type="text" class="form-control" id="movie-title" placeholder="Great Expectations">
                 <button id="movie-title-btn" type="submit" class="btn btn-primary">Search</button>
             </form>
             <!-- end book search -->
+=======
+                <form id="movie-search-form">
+                  <label for="movie-title">Title</label>
+                  <input type="text" class="form-control" id="movie-title" placeholder="Great Expectations">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+                <!-- end book search -->
+>>>>>>> 7ad1d562108ed371c103afc2e867ef402969e2cf
               </div>
             </div>
             <!-- end movie search card -->
 
-            
+
           </div>
         </div>
         <!-- end search card -->
@@ -246,12 +261,12 @@
         <!-- start search results card hold ul #search-results-->
         <div class="card">
           <div class="card-body">
-              <h2 class="card-header">
-                  Search Results
-              </h2>
-              <ul id="search-results">
-                <!-- search results will append here -->
-              </ul>
+            <h2 class="card-header">
+              Search Results
+            </h2>
+            <ul id="search-results">
+              <!-- search results will append here -->
+            </ul>
           </div>
         </div>
         <!-- end search results card -->
