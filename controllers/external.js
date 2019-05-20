@@ -35,22 +35,42 @@ function callBook(req, res) {
 // Parameters = artist & track
 // example of query => localhost:3000/api/searchsong?artist=beatles&track=come+together
 const spotifyThis = (req, res) => {
-  const {
-    artist,
-    track
-  } = req.query;
+  console.log(req.query)
+  var artist = req.query.artist
+  var title = req.query.title
 
-  const queryString = `https://api.spotify.com/v1/search?type=track&q=artist:${artist}&track:${track}`;
+  const queryString = `https://api.spotify.com/v1/search?type=track&q=title:${title}&artist:${artist}&limit=10`;
 
-  spotify.request(queryString, (err, data) => {
-    if (err) {
+  spotify
+    .request(queryString, (err, data) => {
+      if (err) {
+        console.log(err);
+      }
+      res.json(data);
+    })
+    .then(function (response) {
+      console.log(response)
+
+      var artist = response.tracks.items[0].artists[0].name
+      var title = response.tracks.items[0].name;
+      var album = response.tracks.items[0].album.name;
+      var previewLink = response.tracks.items[0].preview_url;
+
+      console.log(`
+
+    ============================================
+    Artist: ${artist}
+    Song Title: ${title}
+    Album Name: ${album}
+    Preview: ${previewLink}
+    ============================================
+`);
+    })
+    .catch((err) => {
       console.log(err);
-      return res.json(err);
-    }
-
-    res.json(data);
-  });
-};
+      res.status(400).json(err);
+    });
+}
 
 function movieThis() {
   let searchQuery;
