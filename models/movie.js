@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
 
   const Movie = sequelize.define("Movie", {
-    url: {
+    poster: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     year: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     plot: {
       type: DataTypes.STRING,
