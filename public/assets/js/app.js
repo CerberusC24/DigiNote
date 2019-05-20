@@ -20,6 +20,7 @@ function registerUser(event) {
     userName: email,
     password
   }
+  console.log(signUpData);
 
   $.ajax({
     url: '/api/users/register',
