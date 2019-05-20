@@ -48,7 +48,7 @@ const getUserPosts = async (req, res) => {
 const deleteUserPost = async (req, res) => {
   Post.destroy({
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     })
     .then(dbPostData => res.json(dbPostData))
@@ -59,9 +59,11 @@ const deleteUserPost = async (req, res) => {
 const updateUserPost = async (req, res) => {
   Post.update({
       title: req.body.title,
-      body: req.body.body,
+      body: req.body.body
     }, {
-      where: req.body.id
+      where: {
+        id: req.params.id
+      }
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => res.json(err));
