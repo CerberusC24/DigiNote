@@ -46,29 +46,30 @@ const spotifyThis = (req, res) => {
       if (err) {
         console.log(err);
       }
+      res.json(data);
     })
-//     .then(function (response) {
-//       console.log(response)
+    .then(function (response) {
+      console.log(response)
 
-//       var artist = response.tracks.items[0].artists[0].name
-//       var title = response.tracks.items[0].name;
-//       var album = response.tracks.items[0].album.name;
-//       var previewLink = response.tracks.items[0].preview_url;
+      var artist = response.tracks.items[0].artists[0].name
+      var title = response.tracks.items[0].name;
+      var album = response.tracks.items[0].album.name;
+      var previewLink = response.tracks.items[0].preview_url;
 
-//       console.log(`
+      console.log(`
 
-//     ============================================
-//     Artist: ${artist}
-//     Song Title: ${title}
-//     Album Name: ${album}
-//     Preview: ${previewLink}
-//     ============================================
-// `);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(400).json(err);
-//     });
+    ============================================
+    Artist: ${artist}
+    Song Title: ${title}
+    Album Name: ${album}
+    Preview: ${previewLink}
+    ============================================
+`);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
 }
 
 function movieThis(req, res) {

@@ -3,7 +3,7 @@ module.exports = function (sequelize, DataTypes) {
   const Movie = sequelize.define("Movie", {
     poster: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     title: {
       type: DataTypes.STRING,

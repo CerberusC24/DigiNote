@@ -31,26 +31,22 @@
           // get access token
           const token = localStorage.getItem("accessToken");
 
-          var poster = response.Poster;
-          var title = response.Title;
-          var year = response.Year;
-          var plot = response.Plot;
-          var cast = response.Actors;
-          var rated = response.Rated;
-          var rating = response.Ratings[1].Value;
+          var movieData = {
+            poster: response.Poster,
+            title: response.Title,
+            year: response.Year,
+            plot: response.Plot,
+            cast: response.Actors,
+            rated: response.Rated,
+            rating: response.Ratings[1].Value
+          }
+          console.log(movieData);
+        
 
           $.ajax({
             url: "/api/movie",
             method: "POST",
-            data: {
-              poster: poster,
-              title: title,
-              year: year,
-              plot: plot,
-              cast: cast,
-              rated: rated,
-              rating: rating
-            },
+            data: movieData,
             headers: {
               authorization: `Bearer ${token}`
             }

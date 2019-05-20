@@ -5,12 +5,9 @@ const {
 
 // create a new Movie
 const newMovie = (req, res) => {
-  const {
-    url
-  } = req.body;
-  Movie.create({
-    url
-    })
+   Movie.create(
+    req.body
+    )
     .then(dbMovieData => res.json(dbMovieData))
     .catch(err => {
       console.log(err);
