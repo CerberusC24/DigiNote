@@ -10,9 +10,7 @@ module.exports = function (sequelize, DataTypes) {
     body: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        len: [1]
-      }
+      len: [1]
     }
   });
 
